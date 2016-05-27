@@ -23,6 +23,9 @@ public class Pedido {
 	
 	@ManyToOne
 	private Aluno aluno;
+	
+	@Column(name = "PAGO")
+	private boolean isPago;
 
 	public Long getId() {
 		return id;
@@ -46,6 +49,14 @@ public class Pedido {
 
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
+	}
+
+	public boolean isPago() {
+		return isPago;
+	}
+
+	public void setPago(boolean isPago) {
+		this.isPago = isPago;
 	}
 	
 }

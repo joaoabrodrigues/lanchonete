@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:opt="http://primefaces.prime.com.tr/optimus"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" >
+    
+	<ui:composition template="template.xhtml">
+		<ui:define name="corpo">
+			<p:outputLabel class="page-title" value="Cadastrar Pedido"/>
+			<h:form>
+				<div class="col-sm-5">
+					<label for="aluno" class="control-label">Aluno</label>
+					<p:inputText class="form-control" name="aluno" id="aluno"/>
+					
+					<label for="valor" class="control-label">Valor</label><br />
+					<pe:inputNumber name="valor" id="valor" symbol="R$ " 
+	                                decimalSeparator="," thousandSeparator="."/><br />
+					
+					<label for="pago" class="control-label">Pago</label><br />
+					<p:selectBooleanCheckbox id="pago" /><br />
+				
+				<p:commandButton class="btn btn-success" value="Salvar"/>
+				<p:commandButton class="btn btn btn-danger" value="Cancelar" 
+								 action="#{pedidoController.cancelar}"/>
+								 
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>       
+
+
+</html>
