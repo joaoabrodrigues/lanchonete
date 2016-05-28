@@ -11,37 +11,23 @@
 	<ui:composition template="template.xhtml">
 		<ui:define name="corpo">
 			<p:outputLabel class="page-title" value="Cadastrar Aluno"/>
-			<h:form>
+			<h:form id="form">
 				<div class="col-sm-5">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
 					<label for="nome" class="control-label">Nome</label>
-					<p:inputText class="form-control" name="nome" id="nomeLbl"/>
+					<p:inputText class="form-control" name="nome" id="nome" value="#{alunoController.aluno.nome}"/>
 					
 					<label for="serie" class="control-label">Série</label>
-					<select class="form-control" id="serieSlc">
-						<option value="">Selecione</option>
-						<option disabled="disabled" class="optionDisabled">Ensino Fundamental</option>
-						<option value="1f">1ª série</option>
-						<option value="2f">2ª série</option>
-						<option value="3f">3ª série</option>
-						<option value="4f">4ª série</option>
-						<option value="5f">5ª série</option>
-						<option value="6f">6ª série</option>
-						<option value="7f">7ª série</option>
-						<option value="8f">8ª série</option>
-						<option value="9f">9ª série</option>
-						<option disabled="disabled" class="optionDisabled">Ensino Médio</option>
-						<option value="1e">1ª série</option>
-						<option value="2e">2ª série</option>
-						<option value="3e">3ª série</option>
-					</select>
+					<p:inputText class="form-control" name="serie" id="serie" value="#{alunoController.aluno.serie}"/>
 					
 					<label for="telefone" class="control-label">Telefone</label>
-					<p:inputMask mask="(99) 9999-9999" style="width: 17%!important;" class="form-control" name="telefone" id="telefoneLbl"/>
+					<p:inputMask mask="(99) 9999-9999" style="width: 17%!important;" value="#{alunoController.aluno.telefone}" class="form-control" name="telefone" id="telefone"/>
 				
 				
-				<p:commandButton class="btn btn-success" value="Salvar"/>
+				<p:commandButton class="btn btn-success" value="Salvar"
+								 action="#{alunoController.saveAluno}" />
 				<p:commandButton class="btn btn btn-danger" value="Cancelar"
-								 action="#{alunoController.cancelar}"/>
+								 action="#{alunoController.cancelarIncluir}"/>
 								 
 			</div>
 			</h:form>

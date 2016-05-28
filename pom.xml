@@ -16,6 +16,14 @@
 		<jstl.version>1.2</jstl.version>
 		<hibernate.version>4.3.6.Final</hibernate.version>
 	</properties>
+	
+	<repositories>
+		<repository>
+			<id>prime-repo</id>
+			<name>Prime Repo</name>
+			<url>http://repository.primefaces.org</url>
+		</repository>
+	</repositories>
 
 	<!-- DEPENDENCIES -->
 	<dependencies>
@@ -91,6 +99,13 @@
 			<artifactId>weld-servlet</artifactId>
 			<version>1.1.10.Final</version>
 		</dependency>
+		
+		<dependency>  
+    		<groupId>org.primefaces.themes</groupId>  
+    		<artifactId>all-themes</artifactId>  
+    		<version>1.0.10</version>  
+		</dependency>  
+		 
 	</dependencies>
 
 	<!-- BUILD CONFIGURATION -->

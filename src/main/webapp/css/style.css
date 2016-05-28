@@ -1,5 +1,9 @@
 /*@import url(https://fonts.googleapis.com/css?family=Open+Sans);*/
 
+body {
+	font-size: 1.1em;
+}
+
 .formulario-corpo {
 	border-bottom: 1px solid #e5e5e5;
 	border-top: 1px solid #e5e5e5;
@@ -7,7 +11,7 @@
 	border-right: 1px solid #e5e5e5;
 	
 	width: 65%;
-	height: 460px;
+	height: 800px;
 	
 	margin: 50px auto 100px auto;
 }
@@ -31,7 +35,7 @@ label {
 }
 
 .page-title {
-    margin-left: 45%;
+    margin-left: 42%;
     margin-top: 2%;
     margin-bottom: 5%;
     font-family: Arial !important/*Open Sans !important;*/;
@@ -70,6 +74,11 @@ label {
 	border-color: black;
 }
 
-ul {
+ul ul {
 	background-color: white!important;
+}
+
+#form:tabela_paginator_top, #form:tabela_paginator_bottom {
+	background-color: white!important;
+	
 }
