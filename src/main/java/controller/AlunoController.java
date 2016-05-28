@@ -35,6 +35,10 @@ public class AlunoController implements Serializable {
 	public List<Aluno> getListAluno() {
 		return alunoDao.getList();
 	}
+	
+	public List<Aluno> getListAlunoOrdem() {
+		return alunoDao.alunosOrdem();
+	}
 
 	public void setListAluno(List<Aluno> listAluno) {
 		this.listAluno = listAluno;
@@ -99,4 +103,5 @@ public class AlunoController implements Serializable {
 		aluno = (Aluno) e.getComponent().getAttributes().get("aluno");
 		alunoDao.remover(aluno.getId());
 	}
+	
 }

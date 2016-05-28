@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 
@@ -14,7 +15,7 @@ public abstract class GenericDao<T, I extends Serializable> {
 
 	   protected EntityManager entityManager;
 	   protected EntityManagerFactory factory;
-	   private Class<T> persistedClass;
+	   protected Class<T> persistedClass;
 
 	   protected GenericDao() {
 	   }
@@ -64,4 +65,20 @@ public abstract class GenericDao<T, I extends Serializable> {
 	   public T encontrar(I id) {
 	       return entityManager.find(persistedClass, id);
 	   }
+	   
+	   @SuppressWarnings("unchecked")
+	   public List<T> listaFiltrando(String s, String... atributos) {
+	        String hql = "from " + persistedClass.getSimpleName() + " obj where ";
+	        for (String atributo : atributos) {
+	            hql += "lower(obj." + atributo + ") like :filtro OR ";
+	        }
+	        hql = hql.substring(0, hql.length() - 3);
+	        Query q = entityManager.createQuery(hql);
+	        q.setParameter("filtro", "%" + s.toLowerCase() + "%");
+	        return q.getResultList();
+	    }
+	   
+	   public Object recuperar(Class entidade, Object id) {
+	        return entityManager.find(entidade, id);
+	    }
 }

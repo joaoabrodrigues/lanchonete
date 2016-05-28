@@ -10,22 +10,33 @@
     
 	<ui:composition template="template.xhtml">
 		<ui:define name="corpo">
-			<p:outputLabel class="page-title" value="Cadastrar Pedido"/>
+			<p:outputLabel class="page-title" value="Pedido"/>
 			<h:form>
 				<div class="col-sm-5">
-					<label for="aluno" class="control-label">Aluno</label>
-					<p:inputText class="form-control" name="aluno" id="aluno"/>
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+					<label for="aluno" class="control-label">Aluno</label><br />
+					<p:autoComplete value="#{pedidoController.pedido.aluno}"
+                                        completeMethod="#{pedidoController.completaAluno(parte)}"
+                                        converter="#{pedidoController.converterAluno}"
+                                        var="alu"
+                                        itemLabel="#{alu.nome}"
+                                        itemValue="#{alu}"
+                                        id="aluno"
+                                        forceSelection="true"
+                                        size="120">
+                    </p:autoComplete><br />
 					
 					<label for="valor" class="control-label">Valor</label><br />
 					<pe:inputNumber name="valor" id="valor" symbol="R$ " 
-	                                decimalSeparator="," thousandSeparator="."/><br />
+	                                decimalSeparator="," thousandSeparator="." value="#{pedidoController.pedido.valor}"/><br />
 					
 					<label for="pago" class="control-label">Pago</label><br />
-					<p:selectBooleanCheckbox id="pago" /><br />
+					<p:selectBooleanCheckbox id="pago" value="#{pedidoController.pedido.pago}"/><br />
 				
-				<p:commandButton class="btn btn-success" value="Salvar"/>
+				<p:commandButton class="btn btn-success" value="Salvar"
+								 action="#{pedidoController.savePedido}"/>
 				<p:commandButton class="btn btn btn-danger" value="Cancelar" 
-								 action="#{pedidoController.cancelar}"/>
+								 action="#{pedidoController.cancelarIncluir}"/>
 								 
 				</div>
 			</h:form>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:opt="http://primefaces.prime.com.tr/optimus"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" >
+    
+	<ui:composition template="template.xhtml">
+		<ui:define name="corpo">
+			<p:outputLabel class="page-title" value="Alunos"/>
+			<h:form id="form">
+				<div class="col-sm-5">
+					  <p:commandButton action="index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
+					  <p:commandButton value="Imprimir" style="float: right;" ajax="false" icon="ui-icon-print"/>
+                      <br/><br/>
+					  <p:dataTable class="table table-hover" value="#{alunoController.listAlunoOrdem}" var="p" emptyMessage="Nenhum aluno encontrado!" paginator="true"
+					  			   rows="200" id="tabela" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                   rowsPerPageTemplate="200, 500" widgetVar="carsTable">
+                                   <p:column id="cnome" headerText="Nome" filterBy="#{p.nome}">
+                                   		<p:outputLabel value="#{p.nome}"/>
+                                   </p:column>
+                                   <p:column id="ctelefone" headerText="Telefone" filterBy="#{p.telefone}">
+                                   		<p:outputLabel value="#{p.telefone}" />
+                                   </p:column>
+                                   <p:column id="cserie" headerText="Série" filterBy="#{p.serie}">
+                                   		<p:outputLabel value="#{p.serie}" />
+                                   </p:column>
+					  </p:dataTable>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>    
+
+
+</html>

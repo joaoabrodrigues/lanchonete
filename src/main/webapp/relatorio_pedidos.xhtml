@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:opt="http://primefaces.prime.com.tr/optimus"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" >
+    
+	<ui:composition template="template.xhtml">
+		<ui:define name="corpo">
+			<p:outputLabel class="page-title" value="Pedidos"/>
+			<h:form id="form">
+				<div class="col-sm-5">
+					  <p:commandButton action="index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
+					  <p:commandButton value="Imprimir" style="float: right;" ajax="false" icon="ui-icon-print"/>
+                      <br/><br/>
+					  <p:dataTable class="table table-hover" value="#{pedidoController.listPedidoOrdem}" var="p" emptyMessage="Nenhum pedido encontrado!" paginator="true"
+					  			   rows="200" id="tabela" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                   rowsPerPageTemplate="200, 500" widgetVar="carsTable">
+                                   <p:column id="cnome" headerText="Nome" filterBy="#{p.aluno.nome}">
+                                   		<p:outputLabel value="#{p.aluno.nome}"/>
+                                   </p:column>
+                                   <p:column id="cvalor" headerText="Valor" filterBy="#{p.valor}">
+                                   		<p:outputLabel value="#{p.valor}" converter="#{pedidoController.moneyConverter}"/>
+                                   </p:column>
+                                   <p:column id="cpago" headerText="Foi pago?" filterBy="#{p.pago}">
+                                   		<p:outputLabel value="#{p.pago}" converter="#{pedidoController.booleanConverter}"/>
+                                   </p:column>
+					  </p:dataTable>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>    
+
+
+</html>
