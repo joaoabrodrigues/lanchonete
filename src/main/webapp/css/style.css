@@ -56,7 +56,7 @@ label {
     margin-top: 2%;
 }
 
-#serieSlc {
+#serie {
 	width: 25%;
 }
 
@@ -74,11 +74,6 @@ label {
 	border-color: black;
 }
 
-ul ul {
-	background-color: white!important;
-}
-
-#form:tabela_paginator_top, #form:tabela_paginator_bottom {
-	background-color: white!important;
-	
+#login {
+	float: right!important;
 }

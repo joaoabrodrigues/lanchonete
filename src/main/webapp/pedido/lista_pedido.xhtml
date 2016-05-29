@@ -8,12 +8,12 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:pe="http://primefaces.org/ui/extensions" >
     
-	<ui:composition template="template.xhtml">
+	<ui:composition template="/template.xhtml">
 		<ui:define name="corpo">
 			<p:outputLabel class="page-title" value="Pedidos"/>
 			<h:form id="form">
 				<div class="col-sm-5">
-					  <p:commandButton action="index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
+					  <p:commandButton action="/index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
                       <p:commandButton action="pedido" value="Incluir novo pedido" style="float: right;" actionListener="#{pedidoController.novo}" ajax="false" icon="ui-icon-circle-plus"/>
                       <br/><br/>
 					  <p:dataTable class="table table-hover" value="#{pedidoController.listPedido}" var="p" emptyMessage="Nenhum pedido encontrado!" paginator="true"

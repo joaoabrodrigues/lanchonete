@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:opt="http://primefaces.prime.com.tr/optimus"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" >
+    
+	<ui:composition template="/template.xhtml">
+		<ui:define name="corpo">
+			<p:outputLabel class="page-title" value="Aluno"/>
+			<h:form id="form">
+				<div class="col-sm-5">
+					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
+					<label for="nome" class="control-label">Nome</label>
+					<p:inputText class="form-control" name="nome" id="nome" value="#{alunoController.aluno.nome}"/>
+					
+					<label for="serie" class="control-label">Série</label>
+					<p:inputText class="form-control" name="serie" id="serie" value="#{alunoController.aluno.serie}"/>
+					
+					<label for="telefone" class="control-label">Telefone</label>
+					<p:inputMask mask="(99) 9999-9999" style="width: 17%!important;" value="#{alunoController.aluno.telefone}" class="form-control" name="telefone" id="telefone"/>
+				
+				
+				<p:commandButton class="btn btn-success" value="Salvar"
+								 action="#{alunoController.saveAluno}" />
+				<p:commandButton class="btn btn btn-danger" value="Cancelar"
+								 action="#{alunoController.cancelarIncluir}"/>
+								 
+			</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>    
+
+
+</html>

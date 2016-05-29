@@ -8,26 +8,24 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:pe="http://primefaces.org/ui/extensions" >
     
-	<ui:composition template="template.xhtml">
+	<ui:composition template="/template.xhtml">
 		<ui:define name="corpo">
-			<p:outputLabel class="page-title" value="Aluno"/>
+			<p:outputLabel class="page-title" value="Usuário"/>
 			<h:form id="form">
 				<div class="col-sm-5">
 					<p:messages id="messages" showDetail="true" autoUpdate="true" closable="true" />
-					<label for="nome" class="control-label">Nome</label>
-					<p:inputText class="form-control" name="nome" id="nome" value="#{alunoController.aluno.nome}"/>
+					<label for="user" class="control-label">Usuário</label>
+					<p:inputText class="form-control" name="user" id="user" value="#{usuarioController.usuario.username}"/>
 					
-					<label for="serie" class="control-label">Série</label>
-					<p:inputText class="form-control" name="serie" id="serie" value="#{alunoController.aluno.serie}"/>
+					<label for="password" class="control-label">Senha</label>
+					<p:password class="form-control" name="password" id="password" value="#{usuarioController.usuario.password}"
+					            feedback="true" inline="true" promptLabel="Força da sua senha" weakLabel="Fraca"
+                                goodLabel="Boa" strongLabel="Forte"/>
 					
-					<label for="telefone" class="control-label">Telefone</label>
-					<p:inputMask mask="(99) 9999-9999" style="width: 17%!important;" value="#{alunoController.aluno.telefone}" class="form-control" name="telefone" id="telefone"/>
-				
-				
 				<p:commandButton class="btn btn-success" value="Salvar"
-								 action="#{alunoController.saveAluno}" />
+								 action="#{usuarioController.saveUsuario}" />
 				<p:commandButton class="btn btn btn-danger" value="Cancelar"
-								 action="#{alunoController.cancelarIncluir}"/>
+								 action="#{usuarioController.cancelarIncluir}"/>
 								 
 			</div>
 			</h:form>

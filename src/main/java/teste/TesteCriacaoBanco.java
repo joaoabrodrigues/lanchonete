@@ -10,7 +10,9 @@ import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
 import model.Aluno;
+import model.Autorizacao;
 import model.Pedido;
+import model.Usuario;
 
 public class TesteCriacaoBanco {
 	
@@ -41,6 +43,22 @@ public class TesteCriacaoBanco {
 		aluno.setPedidos(pedidos);
 		
 		manager.persist(aluno);
+		
+		Autorizacao autorizacao = new Autorizacao();
+		autorizacao.setNome("ROLE_USER");
+		List<Autorizacao> autorizacoes = new ArrayList<Autorizacao>();
+		autorizacoes.add(autorizacao);
+		
+		manager.persist(autorizacao);
+		
+		Usuario usuario = new Usuario();
+		usuario.setAutorizacoes(autorizacoes);
+		usuario.setEnable(true);
+		usuario.setUsername("admin");
+		usuario.setPassword("admin");
+		
+		manager.persist(usuario);
+		
 		trx.commit();
 		
 	}

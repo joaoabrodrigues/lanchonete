@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:opt="http://primefaces.prime.com.tr/optimus"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" >
+    
+    <h:head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>Entrar</title>
+        <link rel="icon" type="image/jpeg" href="img/sandwich.jpg" />
+        <link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css" media="all"/>
+    </h:head>
+    <h:body>
+    <div class="form-group">
+        <p:dialog header="Entrar" visible="true" closable="false" draggable="false" resizable="false" width="420">
+            <center>
+                <h:outputText value="Usuário ou senha incorretos!" rendered="#{param.erro}" style="color: red"/>
+            </center>
+            <form action="j_spring_security_check" method="post">
+            <div class="col-xs-12">
+                    <h:outputLabel class="control-label" for="j_username" value="Usuário" />
+                    <h:inputText class="form-control" id="j_username" required="true"/>
+                    <h:outputLabel class="control-label" for="j_password" value="Senha" />
+                    <h:inputSecret class="form-control" id="j_password" required="true"/>
+                    <br/>
+                    <h:commandButton id="login" class="btn btn-success botao" value="Login"/>
+               </div>
+            </form>
+        </p:dialog>
+    </div>
+    </h:body>
+</html>

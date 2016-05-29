@@ -9,9 +9,11 @@
     xmlns:pe="http://primefaces.org/ui/extensions" >
     
     <h:head>
-    	<link rel="stylesheet" href="css/bootstrap.css" type="text/css" media="all"/>
-    	<link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css" media="all"/>
-    	<link rel="stylesheet" href="css/style.css" type="text/css" media="all"/>
+        <title>Lanchonete</title>
+        <link rel="icon" type="image/jpeg" href="img/sandwich.jpg" />
+        <link rel="stylesheet" href="/lanchonete_jsf/css/bootstrap.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="/lanchonete_jsf/css/bootstrap-theme.css" type="text/css" media="all"/>
+        <link rel="stylesheet" href="/lanchonete_jsf/css/style.css" type="text/css" media="all"/>
     </h:head>
     
     <h:body>
@@ -19,19 +21,20 @@
     		<div class="formulario-corpo">
     			<div class="form-group">
     				<p:menubar class="menu">
-    					<p:menuitem url="index.xhtml" icon="ui-icon-home"/>
+    					<p:menuitem url="/index.xhtml" icon="ui-icon-home"/>
     					<p:submenu label="Cadastrar" icon="ui-icon-pencil">
-    						<p:menuitem value="Aluno" icon="ui-icon-pencil" url="lista_aluno.xhtml"/>
-    						<p:menuitem value="Pedido" icon="ui-icon-pencil" url="lista_pedido.xhtml" />
+    						<p:menuitem value="Aluno" icon="ui-icon-pencil" url="/aluno/lista_aluno.xhtml"/>
+    						<p:menuitem value="Pedido" icon="ui-icon-pencil" url="/pedido/lista_pedido.xhtml" />
+    						<p:menuitem value="Usuário" icon="ui-icon-pencil" url="/usuario/lista_usuario.xhtml" />
     					</p:submenu>
     					<p:submenu label="Relatórios" icon="ui-icon-search">
-    						<p:menuitem value="Alunos cadastrados" icon="ui-icon-search" url="relatorio_alunos.xhtml"/>
-    						<p:menuitem value="Alunos devedores" icon="ui-icon-search" url="relatorio_pedido_nao_pago.xhtml"/>
-    						<p:menuitem value="Pedidos realizados" icon="ui-icon-search" url="relatorio_pedidos.xhtml"/>
+    						<p:menuitem value="Alunos cadastrados" icon="ui-icon-search" url="/relatorios/relatorio_alunos.xhtml"/>
+    						<p:menuitem value="Alunos devedores" icon="ui-icon-search" url="/relatorios/relatorio_pedido_nao_pago.xhtml"/>
+    						<p:menuitem value="Pedidos realizados" icon="ui-icon-search" url="/relatorios/relatorio_pedidos.xhtml"/>
     					</p:submenu>
 
 					<f:facet name="options">
-						<p:commandButton type="button" class="btn btn-default btn-xs" value="Sair" icon="ui-icon-extlink" />
+						<a class="btn btn-default btn-xs" href="#{facesContext.externalContext.requestContextPath}/j_spring_security_logout">Sair</a>
 					</f:facet>
 				</p:menubar>
     				<div id="page-wrapper"> 

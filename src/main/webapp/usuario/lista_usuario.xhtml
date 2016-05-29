@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:opt="http://primefaces.prime.com.tr/optimus"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:pe="http://primefaces.org/ui/extensions" >
+    
+	<ui:composition template="/template.xhtml">
+		<ui:define name="corpo">
+			<p:outputLabel class="page-title" value="Usuários"/>
+			<h:form id="form">
+				<div class="col-sm-5">
+					  <p:commandButton action="/index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
+                      <p:commandButton action="usuario" value="Incluir novo usuário" style="float: right;" actionListener="#{usuarioController.novo}" ajax="false" icon="ui-icon-circle-plus"/>
+                      <br/><br/>
+					  <p:dataTable class="table table-hover" value="#{usuarioController.listUsuario}" var="u" emptyMessage="Nenhum usuário encontrado!" paginator="true"
+					  			   rows="10" id="tabela" paginatorTemplate="{FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"  
+                                   rowsPerPageTemplate="10" widgetVar="carsTable">
+                                   <p:column id="cusuario" headerText="Usuário" filterBy="#{u.username}">
+                                   		<p:outputLabel value="#{u.username}"/>
+                                   </p:column>
+                                   <p:column id="cserie" headerText="Ativo" filterBy="#{u.enable}">
+                                   		<p:outputLabel value="#{u.enable}" converter="#{pedidoController.booleanConverter}"/>
+                                   </p:column>
+                                   <p:column id="ctelefone" headerText="Permissões" filterBy="#{u.autorizacoes.get(0).nome}">
+                                   		<p:outputLabel value="#{u.autorizacoes.get(0).nome}"/>
+                                   </p:column>
+                                   <p:column headerText="Operações" width="14%">
+                                   		<p:commandButton action="aluno" icon="ui-icon-pencil" actionListener="#{usuarioController.editar}" ajax="false">
+                                			<f:attribute value="#{u}" name="usuario"/>
+                            			</p:commandButton>
+                            			<p:commandButton icon="ui-icon-closethick" action="lista_usuario" actionListener="#{usuarioController.excluir}" ajax="false" onclick="if(!confirm('Deseja excluir este registro?')) return false;">
+                                			<f:attribute value="#{u}" name="usuario"/>
+                            			</p:commandButton>
+                            		</p:column>
+					  </p:dataTable>
+				</div>
+			</h:form>
+		</ui:define>
+	</ui:composition>    
+
+
+</html>

@@ -8,12 +8,12 @@
     xmlns:p="http://primefaces.org/ui"
     xmlns:pe="http://primefaces.org/ui/extensions" >
     
-	<ui:composition template="template.xhtml">
+	<ui:composition template="/template.xhtml">
 		<ui:define name="corpo">
 			<p:outputLabel class="page-title" value="Alunos"/>
 			<h:form id="form">
 				<div class="col-sm-5">
-					  <p:commandButton action="index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
+					  <p:commandButton action="/index" value="Voltar" ajax="false" icon="ui-icon-circle-arrow-w"/>
 					  <p:commandButton value="Imprimir" style="float: right;" ajax="false" icon="ui-icon-print"/>
                       <br/><br/>
 					  <p:dataTable class="table table-hover" value="#{alunoController.listAlunoOrdem}" var="p" emptyMessage="Nenhum aluno encontrado!" paginator="true"

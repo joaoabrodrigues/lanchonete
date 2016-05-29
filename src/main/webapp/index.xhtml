@@ -8,7 +8,7 @@
     xmlns:p="http://primefaces.org/ui">
 	<ui:composition template="template.xhtml">
 		<ui:define name="corpo">
-			<p:outputLabel class="page-title" value="Bem-vindo!"/>
+			<p:outputLabel class="page-title" value="Bem-vindo #{usuarioController.usuario.username}!"/>
 		</ui:define>
 	</ui:composition> 
 </html>
